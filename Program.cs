@@ -6,23 +6,22 @@ namespace ArchitectureTraining
     {
         static void Main()
         {
-            // Инверсия зависимостей
+            // Принцип инверсии зависимостей | "Dependency Inversion Principle"
             Delivery courDelivery = new Delivery(new CourierDelivery());
             courDelivery.DeliverGood();
             Delivery postDelivery = new Delivery(new PostDelivery());
             postDelivery.DeliverGood();
 
-            // Паттерн "Декоратор"
+            // Паттерн "Декоратор" | "Decorator"
             DeliveryII deliveryAct = new CourDelivery();
             deliveryAct.Deliver();
             deliveryAct = new CourDeliveryOverMKAD(deliveryAct);
             deliveryAct.Deliver();
 
-            // Паттерн "Фасад"
+            // Паттерн "Фасад" | "Facade"
             Damage initialDamage = new Damage(100, 100, 0);
             DamageCounterFacade facade = new DamageCounterFacade(initialDamage);
-            facade.CountDamage();
-           
+            facade.CountDamage();           
 
             Console.Read();
         }
