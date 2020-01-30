@@ -17,6 +17,13 @@ namespace ArchitectureTraining
             deliveryAct.Deliver();
             deliveryAct = new CourDeliveryOverMKAD(deliveryAct);
             deliveryAct.Deliver();
+
+            // Паттерн "Фасад"
+            Damage initialDamage = new Damage(100, 100, 0);
+            DamageCounterFacade facade = new DamageCounterFacade(initialDamage);
+            facade.CountDamage();
+           
+
             Console.Read();
         }
     }
