@@ -20,7 +20,7 @@ namespace ArchitectureTraining
 
             // Паттерн "Фасад" | "Facade"
             Damage initialDamage = new Damage(100, 100, 0);
-            DamageCounterFacade facade = new DamageCounterFacade(initialDamage);
+            DamageCounterFacade facade = new DamageCounterFacade(initialDamage, new PhysicalResistance(), new MagicalResistance(), new CriticalDamage());
             facade.CountDamage();           
 
             Console.Read();

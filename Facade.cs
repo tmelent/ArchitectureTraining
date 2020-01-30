@@ -60,17 +60,17 @@ namespace ArchitectureTraining
     }
 
     class DamageCounterFacade
-    {
-        // Создаем необходимые экземпляры классов для подсчета урона
-        // Creating instances of our resistance classes to count the damage.
-
-        readonly PhysicalResistance pr = new PhysicalResistance(); 
-        readonly MagicalResistance mr = new MagicalResistance();
-        readonly CriticalDamage cd = new CriticalDamage();
+    {       
+        PhysicalResistance pr; 
+        MagicalResistance mr;
+        CriticalDamage cd;
         readonly Damage initDmg; // Изначальный урон | Initial Damage
         double totalDmg = 0; // Все считаем в эту переменную | This variable will contain everything we count 
-        public DamageCounterFacade(Damage dmg)
+        public DamageCounterFacade(Damage dmg, PhysicalResistance _pr, MagicalResistance _mr, CriticalDamage _cd)
         {
+            pr = _pr;
+            mr = _mr;
+            cd = _cd;
             initDmg = dmg;
         }
         public void CountDamage() // Реализация "фасада" | "Facade" implementation
